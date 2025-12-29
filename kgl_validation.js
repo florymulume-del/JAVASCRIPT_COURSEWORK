@@ -1,5 +1,8 @@
+                     //Coursework 1: KGL Data Validation System
+
 //Part A: Variable Declaration and Type Checking
-//1.declaration 
+/*1. Create a file named kgl_validation.js . Declare the following variables using appropriate
+keywords ( let or const ):*/
 const companyName="Karibu Groceries LTD"//; bcs i want to keep the same value for the variable companyName
 const minimumTonnage=1000; // i chose const beacause the var minimumTonnage should not change ,we keep the same value
 let isOperationnal=true;   // it can be reassigned

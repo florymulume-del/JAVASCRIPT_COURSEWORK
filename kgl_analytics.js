@@ -1,3 +1,7 @@
+// Coursework 3: KGL Analytics and Reporting System
+//A.Part A: Higher Order Functions - Data Transformation
+//1. Create a file named kgl_analytics.js . Create an array of at least 6 procurement record
+
 let procurementRecord=[
     {id:1,dealerName:"flory",produceType:"beans",tonnageInKgs:1000,costInUgx:100,prcurementDate:new Date("2025-04-04")},
     {id:1,dealerName:"aksanti",produceType:"peas",tonnageInKgs:2000,costInUgx:250,prcurementDate:new Date("2025-04-05")},
@@ -6,7 +10,7 @@ let procurementRecord=[
     {id:1,dealerName:"kabeya",produceType:"rice",tonnageInKgs:5000,costInUgx:500,prcurementDate:new Date("2025-04-08")},
     {id:1,dealerName:"katanga",produceType:"sugar",tonnageInKgs:600,costInUgx:600,prcurementDate:new Date("2025-04-09")}
 ]
-
+//2.Use the .map() method.....
 let procurementRecordNew=procurementRecord.map((property)=>{
     return {
          ...property, // spread original properties
@@ -14,21 +18,22 @@ let procurementRecordNew=procurementRecord.map((property)=>{
 
 })
 console.log(procurementRecordNew)
+// 3. Use the .filter() method
 let procurementRecordFiltered=procurementRecordNew.filter(record=>record.tonnageInKgs>=1000)
 console.log(procurementRecordFiltered)
 console.log(procurementRecordFiltered.length) 
-
+// 4. Use the .reduce() method
 const totalTonnage=procurementRecord.reduce((prvalue,currvalue)=>{
     return prvalue+currvalue.tonnageInKgs;
            
-},0)
+},0) 
 const totalCost=procurementRecord.reduce((pvalue,cvalue)=>{
     return pvalue+cvalue.costInUgx;
 },0)
 console.log(`The total tonnage procured across all records
 is :${totalTonnage} and sum of all costInUgx values is :${totalCost}`)
 //Part B: Sets for Unique Data Management
-
+//.5. Create a function getUniqueDealers that:
 function getUniqueDealers(procurementRecords){
     const dealerSet=new Set(procurementRecords.map(record=>record.dealerName))
     return Array.from(dealerSet)
@@ -52,6 +57,7 @@ console.log(isAuthorizedForProcurement("director"))
 console.log(isAuthorizedForProcurement("sales agent"))
 
 //Part C: Maps for Price Management
+// 7. Create a Map called kglPriceList...
 const kglPriceList = new Map(); //declaratin of empty Map called kglPriceList
 //adding items with set method
 kglPriceList.set('Beans', 5500);
@@ -59,7 +65,7 @@ kglPriceList.set('Grain Maize', 4800);
 kglPriceList.set('Cow peas', 6000);
 kglPriceList.set('G-nuts', 7200);
 kglPriceList.set('Soybeans', 5800);
-//function 
+//8. Write a function calculateSaleTotal...
 function calculateSaleTotal(produceName,tonnageInKgs){
     const pricePerKg=kglPriceList.get(produceName) // use get to  to retrieve the price per kg for each produce
     if(pricePerKg===undefined){

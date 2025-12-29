@@ -1,3 +1,5 @@
+                  //Coursework 2: KGL Inventory Processing System
+
 //Part A: Function Implementation
 //1.
 function calculateProcurementCost(tonnageInKg,pricePerKg){
